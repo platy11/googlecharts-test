@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Colours of spines of 90 books in my room</title>
+  </head>
+  <body>
+
+    <div id="piechart"></div>
+    <div id="columnchart"></div>
+    <div id="donutchart"></div>
+    <div id="barchart"></div>
+    <div id="linechart"></div>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script>
+      google.charts.load('current', {'packages':['corechart', 'bar']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var Data = google.visualization.arrayToDataTable([
+            ['Colour', 'Books'],
+            ['Yellow',   9],
+            ['Red',      9],
+            ['Blue',    17],
+            ['Green',   17],
+            ['Purple',   7],
+            ['Orange',  10],
+            ['Black',   14],
+            ['Brown',    1],
+            ['Silver',   4],
+            ['White',    2]
+          ]);
+
+          var pieOptions = {
+            title: 'Colours of spines of 90 books in my room',
+            colors: ['#ffeb3b', '#f44336', '#03a9f4', '#8bc34a', '#9c27b0', '#ff9800', 'black', '#5d4037', '#9e9e9e', '#eee'],
+            is3D: true,
+            width: 700,
+            forceIFrame: true,
+            height: 400
+          };
+
+          var donOptions = {
+            title: 'Colours of spines of 90 books in my room',
+            colors: ['#ffeb3b', '#f44336', '#03a9f4', '#8bc34a', '#9c27b0', '#ff9800', 'black', '#5d4037', '#9e9e9e', '#eee'],
+            pieHole: 0.35,
+            width: 700,
+            forceIFrame: true,
+            height: 400
+          };
+
+          var colOptions = {
+            title: "Colours of spines of 90 books in my room",
+            width: 600,
+            height: 400,
+            bar: { groupWidth: "95%" },
+            colors: ['#03a9f4'],
+            forceIFrame: true,
+            legend: { position: "none" }
+          };
+
+          var barOptions = {
+            title: "Colours of spines of 90 books in my room",
+            width: 600,
+            height: 400,
+            bar: { groupWidth: "95%" },
+            colors: ['#ffa000'],
+            forceIFrame: true,
+            bars: 'horizontal',
+            legend: { position: "none" }
+          };
+
+          var lineOptions = {
+            title: "Colours of spines of 90 books in my room",
+            width: 600,
+            height: 400,
+            colors: ['#009688'],
+            forceIFrame: true,
+            legend: { position: "none" },
+            curveType: 'function'
+          };
+
+          var pieChart = new google.visualization.PieChart(document.getElementById('piechart'));
+          var colChart = new google.visualization.ColumnChart(document.getElementById("columnchart"))
+          var donChart = new google.visualization.PieChart(document.getElementById("donutchart"))
+          var lineChart = new google.visualization.LineChart(document.getElementById('linechart'));
+          var barChart = new google.charts.Bar(document.getElementById("barchart"))
+
+          pieChart.draw(Data, pieOptions)
+          colChart.draw(Data, colOptions)
+          donChart.draw(Data, donOptions)
+          barChart.draw(Data, barOptions)
+          lineChart.draw(Data, lineOptions)
+
+      }
+    </script>
+  </body>
+</html>
